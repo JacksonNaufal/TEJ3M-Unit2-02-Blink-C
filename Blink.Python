@@ -1,0 +1,21 @@
+""Example for Pico. Turns on the built-in LED.""
+import board
+import digitalio
+import time
+
+# 1 blink time = 1000 milliseconds
+blink_time = 1.0
+
+led = digitalio.DigitalInOut(board.LED)
+led.direction = digitalio.Direction.OUTPUT
+
+
+while True:
+    led.value = True
+    # when the LED is true, use the value of the variable
+    time.sleep(blink_time)
+    led.value = False
+    # when the LED is false, wait 1 second before turning on
+    time.sleep(1.0)
+    # every time the code loops, add one second to the original blink_time variables, value.
+    blink_time = blink_time + 1.0
